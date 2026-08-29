@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -34,7 +34,7 @@ const dummyData = [
   { type: 'teacher', title: 'أ. ياسر خالد', idStr: 'الفيزياء', subtitle: 'yasser@injaz.edu', icon: <MessageSquare size={16} />, tagIcon: <Users size={14} />, tagText: 'معلم', color: 'purple', image: 'https://i.pravatar.cc/150?u=a042581f4e29026024f' },
 ];
 
-export default function DashboardPage() {
+function DashboardContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q");
 
@@ -496,5 +496,17 @@ export default function DashboardPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center h-[50vh]">
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }
