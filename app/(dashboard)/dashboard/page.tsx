@@ -146,17 +146,17 @@ function DashboardContent() {
             <h2 className="text-3xl font-extrabold text-[#1A2E44] mb-2 text-center">مرحباً بك مجدداً د. أحمد</h2>
             <p className="text-gray-500 mb-8 text-center text-sm font-medium">إليك نظرة عامة على نشاط المركز اليوم</p>
             
-            <div className="flex items-center justify-between px-4">
+            <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between px-2 sm:px-4 gap-4 sm:gap-0">
               <div className="flex flex-col items-center">
                 <p className="text-xs text-gray-500 font-semibold mb-1">نسبة الحضور</p>
                 <p className="text-2xl font-black text-[#1A2E44] flex items-baseline gap-1">94% <span className="text-green-500 text-xs flex items-center">▲</span></p>
               </div>
-              <div className="w-px h-10 bg-gray-200"></div>
+              <div className="hidden sm:block w-px h-10 bg-gray-200"></div>
               <div className="flex flex-col items-center">
                 <p className="text-xs text-gray-500 font-semibold mb-1">الطلاب الموجودون</p>
                 <p className="text-2xl font-black text-[#1A2E44] flex items-center gap-2">142 <Users size={18} className="text-blue-500" /></p>
               </div>
-              <div className="w-px h-10 bg-gray-200"></div>
+              <div className="hidden sm:block w-px h-10 bg-gray-200"></div>
               <div className="flex flex-col items-center">
                 <p className="text-xs text-gray-500 font-semibold mb-1">حصص اليوم</p>
                 <p className="text-2xl font-black text-[#1A2E44] flex items-center gap-2">42 <BookOpen size={18} className="text-[#1A2E44]" /></p>
