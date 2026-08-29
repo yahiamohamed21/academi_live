@@ -14,7 +14,7 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       
       <div className="text-right mb-8">
-        <h1 className="text-3xl font-extrabold text-[var(--primary)] mb-2">إعدادات النظام</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--primary)] mb-2">إعدادات النظام</h1>
         <p className="text-gray-500 font-medium">إدارة التكوينات وتفضيلات المستخدم</p>
       </div>
 
@@ -126,7 +126,7 @@ export default function SettingsPage() {
         </section>
 
         {/* Action Buttons */}
-        <div className="pt-6 border-t border-gray-100 flex gap-4">
+        <div className="pt-6 border-t border-gray-100 flex flex-wrap gap-4">
           <Button className="px-8 h-12">حفظ التغييرات</Button>
           <Button variant="outline" className="px-8 h-12">الرجوع</Button>
         </div>

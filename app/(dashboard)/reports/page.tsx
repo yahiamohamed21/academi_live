@@ -205,7 +205,7 @@ export default function ReportsPage() {
         
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#001c56] mb-2">التقارير</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-[#001c56] mb-2">التقارير</h1>
           <p className="text-gray-500">نظرة عامة شاملة على أداء المؤسسة، حضور الطلاب، البيانات المالية، وتحليلات المناهج التعليمية.</p>
         </div>
 

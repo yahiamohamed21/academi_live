@@ -70,10 +70,10 @@ export default function FinancePage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-[#001c56] mb-2">الإدارة المالية</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-[#001c56] mb-2">الإدارة المالية</h1>
           <p className="text-gray-500">نظرة عامة على الأداء المالي، تتبع الإيرادات، وتحليل حركة السيولة النقدية.</p>
         </div>
-        <div className="flex bg-white rounded-full p-1 border border-gray-100 shadow-sm">
+        <div className="flex flex-wrap bg-white rounded-full p-1 border border-gray-100 shadow-sm">
           {(["سنوي", "شهري", "أسبوعي"] as const).map(filter => (
             <button
               key={filter}
@@ -189,7 +189,7 @@ export default function FinancePage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="border-b border-gray-100">
                   <th className="text-right pb-4 text-xs font-bold text-gray-400 w-1/4">الطالب</th>

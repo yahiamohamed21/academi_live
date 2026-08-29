@@ -271,12 +271,12 @@ export default function StudentsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[var(--primary)] mb-2 tracking-tight">الطلاب</h1>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--primary)] mb-2 tracking-tight">الطلاب</h1>
           <p className="text-gray-500 font-medium">إدارة بيانات ومتابعة سجلات الطلاب والمجموعات</p>
         </div>
         <Button 
           onClick={() => setIsAddStudentOpen(true)}
-          className="bg-[var(--primary)] text-white gap-2 h-12 px-6 rounded-xl shadow-md"
+          className="bg-[var(--primary)] text-white gap-2 h-12 px-6 rounded-xl shadow-md w-full md:w-auto"
         >
           <UserPlus size={18} />
           إضافة طالب
@@ -284,7 +284,7 @@ export default function StudentsPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
           <p className="text-gray-500 font-bold mb-2">إجمالي الطلاب</p>
           <div className="flex items-end justify-center gap-3">

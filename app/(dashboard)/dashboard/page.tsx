@@ -184,7 +184,7 @@ function DashboardContent() {
 
             <div className="space-y-4">
               {/* Student Card 1 */}
-              <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center gap-4">
+              <div className="bg-white rounded-3xl p-4 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 relative">
                   <Image src="https://i.pravatar.cc/150?u=a042581f4e29026024d" fill alt="Student" className="object-cover" />
                 </div>
@@ -194,19 +194,19 @@ function DashboardContent() {
                     <span className="px-3 py-0.5 rounded-full bg-red-50 text-red-600 text-[10px] font-bold">فائقة الأهمية</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">الصف العاشر</p>
-                  <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 font-medium">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-xs text-gray-500 font-medium">
                     <span className="flex items-center gap-1"><MonitorPlay size={12} /> عن بعد</span>
                     <span className="flex items-center gap-1"><BookOpen size={12} /> الفيزياء (كيمياء)</span>
                     <span className="flex items-center gap-1">ST-3023-892</span>
                   </div>
                 </div>
-                <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 mr-4">
+                <div className="w-full sm:w-24 h-2 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 sm:mr-4 mt-2 sm:mt-0">
                   <div className="w-[80%] h-full bg-[#1A2E44] rounded-full"></div>
                 </div>
               </div>
 
               {/* Student Card 2 */}
-              <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center gap-4">
+              <div className="bg-white rounded-3xl p-4 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 relative">
                   <Image src="https://i.pravatar.cc/150?u=a04258a2462d826712d" fill alt="Student" className="object-cover" />
                 </div>
@@ -216,13 +216,13 @@ function DashboardContent() {
                     <span className="px-3 py-0.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold">فائقة الأهمية</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">الصف الثاني عشر</p>
-                  <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 font-medium">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 text-xs text-gray-500 font-medium">
                     <span className="flex items-center gap-1"><User size={12} /> سنتر</span>
                     <span className="flex items-center gap-1"><BookOpen size={12} /> الفيزياء (فيزياء)</span>
                     <span className="flex items-center gap-1">ST-3023-451</span>
                   </div>
                 </div>
-                <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 mr-4">
+                <div className="w-full sm:w-24 h-2 bg-gray-100 rounded-full overflow-hidden flex-shrink-0 sm:mr-4 mt-2 sm:mt-0">
                   <div className="w-[40%] h-full bg-[#1A2E44] rounded-full"></div>
                 </div>
               </div>
@@ -246,7 +246,7 @@ function DashboardContent() {
                   <h4 className="font-bold text-gray-900 text-lg">الرياضيات المتقدمة - الصف الثالث</h4>
                   <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold">قادمة</span>
                 </div>
-                <div className="flex items-center justify-between text-sm text-gray-500 font-medium">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-gray-500 font-medium">
                   <div className="flex items-center gap-2"><User size={16} /> 23 / 30 طالب</div>
                   <div className="flex items-center gap-2"><CalendarDays size={16} /> 14:00 - 15:30</div>
                   <div className="text-xs">قاعة 101</div>
@@ -259,7 +259,7 @@ function DashboardContent() {
                   <h4 className="font-bold text-gray-900 text-lg">مجموعة الكيمياء - الصف الثاني الثانوي</h4>
                   <span className="px-3 py-1 rounded-full bg-red-100 text-red-600 text-xs font-bold">الآن</span>
                 </div>
-                <div className="flex items-center justify-between text-sm text-gray-500 font-medium">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-gray-500 font-medium">
                   <div className="flex items-center gap-2"><User size={16} /> 18 / 25 طالب</div>
                   <div className="flex items-center gap-2"><CalendarDays size={16} /> 08:00 - 09:30</div>
                   <div className="text-xs">القاعة أ-101</div>
@@ -272,7 +272,7 @@ function DashboardContent() {
                   <h4 className="font-bold text-gray-900 text-lg">جلسة تدريبية 5</h4>
                   <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold">قادمة</span>
                 </div>
-                <div className="flex items-center justify-between text-sm text-gray-500 font-medium">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-gray-500 font-medium">
                   <div className="flex items-center gap-2"><User size={16} /> 15 / 30 طالب</div>
                   <div className="flex items-center gap-2"><CalendarDays size={16} /> 14:00 - 15:30</div>
                   <div className="text-xs">قاعة 104</div>

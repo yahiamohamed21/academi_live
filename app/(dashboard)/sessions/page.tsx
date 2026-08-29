@@ -62,7 +62,7 @@ export default function SessionsPage() {
       
       {/* Header */}
       <div className="flex flex-col items-end">
-        <h1 className="text-4xl font-extrabold text-[#001c56] mb-2 tracking-tight flex items-center gap-2">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[#001c56] mb-2 tracking-tight flex items-center gap-2">
           إدارة الجلسات
         </h1>
         <p className="text-gray-500 font-medium">
@@ -394,7 +394,7 @@ export default function SessionsPage() {
       {/* Sessions Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredSessions.map((session) => (
-          <div key={session.id} className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between h-[220px]">
+          <div key={session.id} className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between min-h-[220px] h-auto">
             <div className="flex justify-between items-start">
               <span className={`px-4 py-1.5 text-xs font-bold rounded-full ${session.tagColor}`}>
                 {session.status}

@@ -228,7 +228,7 @@ export default function ELearningDashboard() {
             
             <div className="space-y-4">
               {lectures.map((lecture, i) => (
-                <div key={i} className="bg-[#f8fafc] rounded-3xl p-4 flex items-center justify-between gap-4 border border-gray-50 transition-colors hover:bg-gray-50">
+                <div key={i} className="bg-[#f8fafc] rounded-3xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-gray-50 transition-colors hover:bg-gray-50">
                   <div className="flex items-center gap-4 text-right flex-row-reverse w-full justify-between">
                     <div className="flex items-center gap-4 flex-row-reverse">
                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 border border-gray-100">

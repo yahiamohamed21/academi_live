@@ -157,7 +157,7 @@ export default function TeamPage() {
       
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-[#001c56] mb-2 text-center md:text-right">إدارة فريق التدريس</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-[#001c56] mb-2 text-center md:text-right">إدارة فريق التدريس</h1>
       </div>
 
       {/* Top Stats Cards */}

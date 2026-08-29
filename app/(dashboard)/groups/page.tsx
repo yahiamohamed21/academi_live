@@ -170,7 +170,7 @@ export default function GroupsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[var(--primary)] mb-2 tracking-tight">جدول الحصص والتقويم</h1>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--primary)] mb-2 tracking-tight">جدول الحصص والتقويم</h1>
           <p className="text-gray-500 font-medium flex items-center gap-2">
             <Calendar size={16} /> الخميس، 20 أغسطس 2026
           </p>
@@ -230,7 +230,7 @@ export default function GroupsPage() {
                   </span>
                 </div>
                 
-                <div className="flex items-center justify-between text-[11px] font-bold text-gray-500 pr-3 mt-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] font-bold text-gray-500 pr-3 mt-4">
                   <div className="flex items-center gap-1.5">
                     <DoorOpen size={14} className="text-gray-400" />
                     <span>{session.room}</span>
