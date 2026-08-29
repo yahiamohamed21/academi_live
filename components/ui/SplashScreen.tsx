@@ -7,21 +7,23 @@ export default function SplashScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Start progress immediately
+    setMounted(true);
+    // Smooth progress animation
     const progressTimer = setTimeout(() => {
       setProgress(100);
-    }, 50);
+    }, 100);
 
-    // Keep the splash screen for 1.5 seconds, then start fading out
+    // Keep the splash screen for 1.8 seconds, then start fading out
     const timer = setTimeout(() => {
       setFadeOut(true);
-      // Remove from DOM after fade out transition (500ms)
+      // Remove from DOM after fade out transition
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
-    }, 1500);
+      }, 700);
+    }, 1800);
 
     return () => {
       clearTimeout(timer);
@@ -33,26 +35,38 @@ export default function SplashScreen() {
 
   return (
     <div 
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#001c56] transition-opacity duration-500 ease-in-out ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
+      className={`fixed inset-0 w-screen h-[100dvh] z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-[#000a1f] via-[#001c56] to-[#002a7a] transition-all duration-700 ease-in-out ${fadeOut ? 'opacity-0 scale-105 blur-md' : 'opacity-100 scale-100 blur-0'}`}
       dir="rtl"
     >
-      <div className="relative flex flex-col items-center">
-        {/* Pulsing Logo */}
-        <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center text-[#001c56] shadow-2xl mb-6 relative animate-bounce">
-          <GraduationCap size={50} />
+      {/* Decorative background blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[50vh] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className={`relative flex flex-col items-center z-10 transition-all duration-1000 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        
+        {/* Glow behind logo */}
+        <div className="absolute top-8 w-32 h-32 bg-blue-400/20 blur-2xl rounded-full animate-pulse" />
+
+        {/* Logo Container */}
+        <div className="w-28 h-28 bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] flex items-center justify-center text-white shadow-2xl mb-8 relative">
+          <GraduationCap size={56} className="drop-shadow-lg" />
           
-          {/* Ripple effects */}
-          <div className="absolute inset-0 rounded-3xl border-4 border-white opacity-50 animate-ping"></div>
+          {/* Animated Rings */}
+          <div className="absolute inset-0 rounded-[2rem] border-2 border-white/40 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+          <div className="absolute inset-0 rounded-[2rem] border-2 border-blue-300/30 animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
         </div>
         
         {/* App Name */}
-        <h1 className="text-4xl font-black text-white tracking-tight mb-2">أكاديميا</h1>
-        <p className="text-blue-200 font-medium text-lg tracking-wide opacity-80">نظام الإدارة الذكي</p>
+        <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 tracking-tight mb-3 drop-shadow-md">
+          أكاديميا
+        </h1>
+        <p className="text-blue-200/80 font-medium text-lg tracking-wide">
+          نظام الإدارة الذكي
+        </p>
         
         {/* Loading bar */}
-        <div className="w-48 h-1.5 bg-blue-900/50 rounded-full mt-8 overflow-hidden relative">
+        <div className="w-56 h-1 bg-blue-900/40 rounded-full mt-10 overflow-hidden relative backdrop-blur-sm border border-blue-800/30">
           <div 
-            className="h-full bg-blue-400 rounded-full absolute right-0 top-0 bottom-0 transition-all duration-[1500ms] ease-out"
+            className="h-full bg-gradient-to-r from-blue-400 to-white rounded-full absolute right-0 top-0 bottom-0 transition-all duration-[1700ms] ease-out shadow-[0_0_10px_rgba(96,165,250,0.8)]"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
