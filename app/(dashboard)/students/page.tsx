@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/Button";
 import { 
   UserPlus, 
@@ -463,7 +464,7 @@ export default function StudentsPage() {
                     </td>
                     <td className="py-4 px-6 text-gray-500 font-medium text-xs">{student.lastActive}</td>
                     <td className="py-4 px-6">
-                      <div className="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex justify-center gap-2">
                         <button 
                           onClick={() => setQuickViewStudent(student)}
                           className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
@@ -507,15 +508,15 @@ export default function StudentsPage() {
       </div>
 
       {/* Quick View Drawer */}
-      {quickViewStudent && (
+      {quickViewStudent && typeof document !== 'undefined' && createPortal(
         <>
           <div 
-            className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-50 animate-in fade-in duration-200"
+            className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-[60] animate-in fade-in duration-200"
             onClick={() => setQuickViewStudent(null)}
           />
-          <div className="fixed top-0 right-0 h-full w-[360px] bg-white z-50 shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
+          <div className="fixed top-0 left-0 h-full w-[360px] bg-white z-[60] shadow-2xl flex flex-col animate-in slide-in-from-left duration-300">
             {/* Header / Banner */}
-            <div className="bg-[#1e3a8a] text-white pt-6 pb-16 px-6 relative rounded-bl-3xl">
+            <div className="bg-[#1e3a8a] text-white pt-6 pb-16 px-6 relative rounded-br-3xl">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-bold">عرض سريع للطالب</h2>
                 <button 
@@ -656,17 +657,18 @@ export default function StudentsPage() {
               </div>
             </div>
           )}
-        </>
+        </>,
+        document.body
       )}
 
       {/* Add Student Drawer (Left side) */}
-      {isAddStudentOpen && (
+      {isAddStudentOpen && typeof document !== 'undefined' && createPortal(
         <>
           <div 
-            className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-50 animate-in fade-in duration-200"
+            className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-[60] animate-in fade-in duration-200"
             onClick={() => setIsAddStudentOpen(false)}
           />
-          <div className="fixed top-0 left-0 h-full w-[400px] bg-white z-50 shadow-2xl flex flex-col animate-in slide-in-from-left duration-300">
+          <div className="fixed top-0 left-0 h-full w-[400px] bg-white z-[60] shadow-2xl flex flex-col animate-in slide-in-from-left duration-300">
             {/* Header */}
             <div className="pt-8 pb-6 px-8 relative border-b border-gray-100">
               <button 
@@ -787,9 +789,9 @@ export default function StudentsPage() {
               </Button>
             </div>
           </div>
-        </>
+        </>,
+        document.body
       )}
-
     </div>
   );
 }

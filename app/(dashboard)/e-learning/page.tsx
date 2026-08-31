@@ -169,8 +169,8 @@ export default function ELearningDashboard() {
           {/* Circular mask for image */}
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-[8px] border-white shadow-2xl overflow-hidden z-20 shrink-0">
             <Image 
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop"
-              alt="Students studying"
+              src="/e-learning.jpg"
+              alt="E-Learning"
               fill
               className="object-cover"
             />
@@ -468,7 +468,7 @@ export default function ELearningDashboard() {
 
       {/* Study Progress Modal / Slide-over */}
       {isProgressModalOpen && (
-        <div className="fixed inset-0 z-50 flex justify-start bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-[#f8fafc] w-full max-w-[450px] h-full flex flex-col shadow-2xl animate-in slide-in-from-left duration-300 rounded-r-[32px] overflow-hidden">
             
             {/* Header */}
@@ -577,7 +577,7 @@ export default function ELearningDashboard() {
 
       {/* Announcements Modal / Slide-over */}
       {isAnnouncementsModalOpen && (
-        <div className="fixed inset-0 z-50 flex justify-start bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-[#f8fafc] w-full max-w-[450px] h-full flex flex-col shadow-2xl animate-in slide-in-from-left duration-300 rounded-r-[32px] overflow-hidden">
             
             {/* Header */}

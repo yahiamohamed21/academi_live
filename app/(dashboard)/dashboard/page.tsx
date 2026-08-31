@@ -3,9 +3,9 @@
 import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  Users, 
-  CalendarDays, 
+import {
+  Users,
+  CalendarDays,
   BookOpen,
   MessageSquare,
   Wallet,
@@ -39,7 +39,7 @@ function DashboardContent() {
   const query = searchParams.get("q");
 
   if (query) {
-    const filteredResults = dummyData.filter(item => 
+    const filteredResults = dummyData.filter(item =>
       item.title.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -55,14 +55,13 @@ function DashboardContent() {
         <div className="space-y-4">
           {filteredResults.length > 0 ? (
             filteredResults.map((result, idx) => (
-              <div 
+              <div
                 key={idx}
-                className={`bg-white rounded-2xl p-5 shadow-sm border-r-4 flex items-center justify-between ${
-                  result.color === 'blue' ? 'border-r-blue-500' :
-                  result.color === 'purple' ? 'border-r-purple-500' :
-                  result.color === 'green' ? 'border-r-green-500' :
-                  'border-r-gray-500'
-                }`}
+                className={`bg-white rounded-2xl p-5 shadow-sm border-r-4 flex items-center justify-between ${result.color === 'blue' ? 'border-r-blue-500' :
+                    result.color === 'purple' ? 'border-r-purple-500' :
+                      result.color === 'green' ? 'border-r-green-500' :
+                        'border-r-gray-500'
+                  }`}
               >
                 <div className="flex items-center gap-4">
                   {result.image ? (
@@ -70,14 +69,13 @@ function DashboardContent() {
                       <Image src={result.image} fill alt={result.title} className="object-cover" />
                     </div>
                   ) : (
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${
-                      result.color === 'green' ? 'bg-green-50 text-green-600' :
-                      'bg-gray-100 text-gray-600'
-                    }`}>
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${result.color === 'green' ? 'bg-green-50 text-green-600' :
+                        'bg-gray-100 text-gray-600'
+                      }`}>
                       {result.iconOnly}
                     </div>
                   )}
-                  
+
                   <div>
                     <h3 className="font-bold text-gray-900 text-lg">{result.title}</h3>
                     <p className="text-xs text-gray-400 mb-2">{result.idStr}</p>
@@ -87,13 +85,12 @@ function DashboardContent() {
                   </div>
                 </div>
 
-                <div className={`px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 ${
-                  result.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                  result.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                  result.color === 'green' ? 'bg-green-50 text-green-600' :
-                  'bg-gray-100 text-gray-600'
-                }`}>
-                   {result.tagIcon} {result.tagText}
+                <div className={`px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 ${result.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                    result.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                      result.color === 'green' ? 'bg-green-50 text-green-600' :
+                        'bg-gray-100 text-gray-600'
+                  }`}>
+                  {result.tagIcon} {result.tagText}
                 </div>
               </div>
             ))
@@ -129,38 +126,64 @@ function DashboardContent() {
 
   return (
     <div className="space-y-6 max-w-[1400px] mx-auto pb-10">
-      
+
       {/* Welcome Banner */}
-      <div className="relative w-full h-[320px] rounded-[32px] overflow-hidden shadow-sm">
-        <Image 
-          src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=2070&auto=format&fit=crop"
+      <div className="relative w-full h-[440px] rounded-[32px] overflow-hidden shadow-sm bg-gray-100">
+        <Image
+          src="/dashboard_teacher.jpg"
           alt="Welcome"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" />
-        
-        {/* Curved Card Overlay */}
-        <div className="absolute bottom-0 right-0 w-full md:w-auto p-6 md:p-8">
-          <div className="bg-white/95 backdrop-blur-md rounded-[32px] p-6 md:px-10 md:py-8 shadow-xl max-w-2xl relative">
-            <h2 className="text-3xl font-extrabold text-[#1A2E44] mb-2 text-center">مرحباً بك مجدداً د. أحمد</h2>
-            <p className="text-gray-500 mb-8 text-center text-sm font-medium">إليك نظرة عامة على نشاط المركز اليوم</p>
-            
-            <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between px-2 sm:px-4 gap-4 sm:gap-0">
-              <div className="flex flex-col items-center">
-                <p className="text-xs text-gray-500 font-semibold mb-1">نسبة الحضور</p>
-                <p className="text-2xl font-black text-[#1A2E44] flex items-baseline gap-1">94% <span className="text-green-500 text-xs flex items-center">▲</span></p>
+        <div className="absolute inset-0 bg-black/10" />
+
+        {/* The White Overlay Container */}
+        <div className="absolute bottom-6 left-6 right-6 h-[180px] rounded-[32px] overflow-hidden z-10 shadow-[0_0_30px_rgba(255,255,255,0.6)] bg-white/75 backdrop-blur-sm">
+
+          {/* Top Left White Swoop (Opaque) */}
+          <div className="absolute -top-[140px] -left-[60px] w-[320px] h-[320px] bg-white rounded-full"></div>
+
+          {/* Bottom Right Circular Bump (Opaque) */}
+          <div className="absolute -right-[60px] -bottom-[120px] w-[280px] h-[280px] bg-white rounded-full"></div>
+
+          {/* Content layer */}
+          <div className="absolute inset-0 flex flex-row-reverse justify-between items-center z-20 px-8">
+
+            {/* Right Stat (حصص اليوم) */}
+            <div className="flex flex-col items-center justify-center w-[180px] h-full pt-6 pr-4">
+              <p className="text-slate-600 font-bold mb-2 text-[13px]">حصص اليوم</p>
+              <p className="text-2xl font-black text-[#001c56] flex items-center justify-center gap-2">
+                <BookOpen size={20} className="text-[#001c56]" /> 42
+              </p>
+            </div>
+
+            {/* Center Welcome */}
+            <div className="flex-1 flex flex-col items-center justify-center h-full pt-2">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#001c56] mb-3 tracking-tight" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.95), 0 0 5px rgba(255,255,255,0.95)' }}>
+                مرحباً بك مجدداً د. أحمد
+              </h2>
+              <p className="text-[#001c56] text-sm md:text-base font-semibold mb-6" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.95), 0 0 5px rgba(255,255,255,0.95)' }}>
+                إليك نظرة عامة على نشاط المركز اليوم
+              </p>
+
+              <div className="flex items-center gap-6">
+                <p className="text-[#001c56] font-bold text-sm" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.95), 0 0 5px rgba(255,255,255,0.95)' }}>الطلاب الموجودون</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-600 text-[10px] mt-0.5">▲</span>
+                  <p className="text-2xl font-black text-[#001c56] flex items-center gap-1.5" style={{ textShadow: '0 2px 10px rgba(255,255,255,0.95), 0 0 5px rgba(255,255,255,0.95)' }}>
+                    142 <Users size={20} className="text-[#001c56]" />
+                  </p>
+                </div>
               </div>
-              <div className="hidden sm:block w-px h-10 bg-gray-200"></div>
-              <div className="flex flex-col items-center">
-                <p className="text-xs text-gray-500 font-semibold mb-1">الطلاب الموجودون</p>
-                <p className="text-2xl font-black text-[#1A2E44] flex items-center gap-2">142 <Users size={18} className="text-blue-500" /></p>
-              </div>
-              <div className="hidden sm:block w-px h-10 bg-gray-200"></div>
-              <div className="flex flex-col items-center">
-                <p className="text-xs text-gray-500 font-semibold mb-1">حصص اليوم</p>
-                <p className="text-2xl font-black text-[#1A2E44] flex items-center gap-2">42 <BookOpen size={18} className="text-[#1A2E44]" /></p>
-              </div>
+            </div>
+
+            {/* Left Stat (نسبة الحضور) */}
+            <div className="flex flex-col items-center justify-center w-[180px] h-full pt-4 pl-4">
+              <p className="text-slate-600 font-bold mb-2 text-[13px]">نسبة الحضور</p>
+              <p className="text-2xl font-black text-[#001c56] flex items-center justify-center gap-2" dir="ltr">
+                <span className="text-emerald-500 text-sm font-bold flex items-center gap-1">+8 <span className="text-[10px]">▲</span></span>
+                94%
+              </p>
             </div>
           </div>
         </div>
@@ -168,10 +191,10 @@ function DashboardContent() {
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         {/* Right Column (Wider) */}
         <div className="lg:col-span-7 xl:col-span-8 space-y-8">
-          
+
           {/* Students Section */}
           <section className="bg-blue-50/30 rounded-[32px] p-6">
             <div className="flex justify-between items-center mb-6">
@@ -307,11 +330,11 @@ function DashboardContent() {
 
               <div className="bg-white rounded-3xl p-5 shadow-sm flex items-center justify-between">
                 <div className="flex items-end gap-1 h-8">
-                   <div className="w-2 bg-[#1A2E44] h-full rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[40%] rounded-t-sm"></div>
-                   <div className="w-2 bg-gray-200 h-[70%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-full rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[40%] rounded-t-sm"></div>
+                  <div className="w-2 bg-gray-200 h-[70%] rounded-t-sm"></div>
                 </div>
                 <div className="flex-1 mr-4">
                   <h4 className="font-bold text-gray-900">إحصائيات الاختبارات</h4>
@@ -328,7 +351,7 @@ function DashboardContent() {
 
         {/* Left Column (Narrower) */}
         <div className="lg:col-span-5 xl:col-span-4 space-y-8">
-          
+
           {/* Sessions Section */}
           <section className="bg-blue-50/30 rounded-[32px] p-6">
             <div className="flex justify-between items-center mb-6">
@@ -338,7 +361,7 @@ function DashboardContent() {
               </div>
               <Link href="/sessions" className="text-sm font-bold text-gray-500 hover:text-[var(--primary)]">عرض المزيد</Link>
             </div>
-            
+
             <div className="space-y-4">
               <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-bold">جارية</span>
@@ -389,12 +412,12 @@ function DashboardContent() {
               </div>
 
               <div className="bg-white rounded-3xl p-5 shadow-sm flex items-center justify-between">
-                 <div className="flex items-end gap-1 h-8">
-                   <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[40%] rounded-t-sm"></div>
-                   <div className="w-2 bg-gray-200 h-[30%] rounded-t-sm"></div>
-                   <div className="w-2 bg-gray-200 h-[20%] rounded-t-sm"></div>
+                <div className="flex items-end gap-1 h-8">
+                  <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[40%] rounded-t-sm"></div>
+                  <div className="w-2 bg-gray-200 h-[30%] rounded-t-sm"></div>
+                  <div className="w-2 bg-gray-200 h-[20%] rounded-t-sm"></div>
                 </div>
                 <div className="flex-1 mr-4">
                   <h4 className="font-bold text-gray-900">اتجاه التحصيل</h4>
@@ -418,11 +441,11 @@ function DashboardContent() {
             </div>
 
             <div className="space-y-4">
-               <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center justify-between">
+              <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center justify-between">
                 <div className="flex items-end gap-1 h-8">
-                   <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
-                   <div className="w-2 bg-[#1A2E44] h-full rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[60%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-[80%] rounded-t-sm"></div>
+                  <div className="w-2 bg-[#1A2E44] h-full rounded-t-sm"></div>
                 </div>
                 <div className="flex-1 mr-4">
                   <h4 className="font-bold text-gray-900 text-sm">تقرير الحضور</h4>
@@ -432,7 +455,7 @@ function DashboardContent() {
                   <User size={20} />
                 </div>
               </div>
-              
+
               <div className="bg-white rounded-3xl p-4 shadow-sm flex items-center justify-between">
                 <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center font-bold text-blue-600 text-xs">
                   جيد
@@ -465,7 +488,7 @@ function DashboardContent() {
                 <p className="text-xs text-gray-500 mt-1">كيمياء • 120 طالب</p>
               </div>
               <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 relative">
-                  <Image src="https://i.pravatar.cc/150?u=a042581f4e29026024f" fill alt="Teacher" className="object-cover" />
+                <Image src="https://i.pravatar.cc/150?u=a042581f4e29026024f" fill alt="Teacher" className="object-cover" />
               </div>
             </div>
           </section>
@@ -479,7 +502,7 @@ function DashboardContent() {
               </div>
               <Link href="/notifications" className="text-sm font-bold text-gray-500 hover:text-[var(--primary)]">عرض المزيد</Link>
             </div>
-            
+
             <div className="space-y-3 bg-white rounded-3xl p-5 shadow-sm">
               <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                 <span className="font-bold text-gray-700 text-sm">رصيد آجل مستحق</span>

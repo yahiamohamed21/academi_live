@@ -1,22 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import { 
-  Search, 
-  ChevronDown, 
-  FileText, 
-  Video, 
-  Clock, 
+import Link from "next/link";
+import {
+  Search,
+  ChevronDown,
+  FileText,
+  Video,
+  Clock,
   TrendingUp,
   MonitorPlay,
   CalendarPlus
 } from "lucide-react";
 
 const mockSessions = [
-  { id: 1, title: 'الفيزياء المتقدمة', teacher: 'أ. محمد علي', time: '10:00 ص', status: 'جارية', attendance: 85, icon: <Video size={24} />, iconColor: 'text-[#001c56]', iconBg: 'bg-blue-100', tagColor: 'bg-green-100 text-green-600', group: 'مجموعه الفيزياء A', subject: 'الفيزياء', dateFilter: 'اليوم' },
-  { id: 2, title: 'الرياضيات التطبيقية', teacher: 'أ. محمد يوسف', time: '08:00 ص', status: 'مكتملة', attendance: 95, icon: <FileText size={24} />, iconColor: 'text-gray-600', iconBg: 'bg-white border-2 border-gray-200', tagColor: 'bg-gray-100 text-gray-600', group: 'مجموعه الرياضيات D', subject: 'الرياضيات', dateFilter: 'اليوم' },
-  { id: 3, title: 'الكيمياء العضوية', teacher: 'د. سارة أحمد', time: '12:30 م', status: 'قادمة', registered: '45/50', progress: 90, icon: <Clock size={24} />, iconColor: 'text-[#001c56]', iconBg: 'bg-blue-50', tagColor: 'bg-blue-100 text-blue-500', group: 'مجموعه الكيمياء C', subject: 'الكيمياء', dateFilter: 'غدا' },
-  { id: 4, title: 'الأحياء العامة', teacher: 'د. ليلى حسن', time: '02:00 م', status: 'ملغاة', reason: 'عذر طبي', tagColor: 'bg-red-50 text-red-500', group: 'مجموعه الأحياء A', subject: 'الأحياء', dateFilter: 'الأسبوع القادم' },
+  { id: 1, title: 'الفيزياء المتقدمة', teacher: 'أ. محمد علي', time: '10:00 ص', status: 'جارية', attendance: 85, icon: <Video size={24} />, iconColor: 'text-[#001c56]', iconBg: 'bg-blue-100', tagColor: 'bg-green-50 text-green-500 border border-green-100', group: 'مجموعه الفيزياء A', subject: 'الفيزياء', dateFilter: 'اليوم' },
+  { id: 2, title: 'الرياضيات التطبيقية', teacher: 'أ. خالد يوسف', time: '08:00 ص', status: 'مكتملة', attendance: 95, icon: <FileText size={24} />, iconColor: 'text-gray-600', iconBg: 'bg-white border-2 border-gray-100', tagColor: 'bg-gray-50 text-gray-500 border border-gray-100', group: 'مجموعه الرياضيات D', subject: 'الرياضيات', dateFilter: 'اليوم' },
+  { id: 3, title: 'الكيمياء العضوية', teacher: 'د. سارة أحمد', time: '12:30 م', status: 'قادمة', registered: '45/50', progress: 90, icon: <Clock size={24} />, iconColor: 'text-[#001c56]', iconBg: 'bg-blue-50', tagColor: 'bg-blue-50 text-blue-500 border border-blue-100', group: 'مجموعه الكيمياء C', subject: 'الكيمياء', dateFilter: 'غدا' },
+  { id: 4, title: 'الأدب العربي', teacher: 'د. ليلى حسن', time: '02:00 م', status: 'ملغاة', reason: 'عذر طبي', tagColor: 'bg-red-50 text-red-400 border border-red-100', group: 'مجموعه الأحياء A', subject: 'الأحياء', dateFilter: 'الأسبوع القادم' },
 ];
 
 export default function SessionsPage() {
@@ -59,9 +60,9 @@ export default function SessionsPage() {
 
   return (
     <div className="space-y-8 max-w-[1400px] mx-auto pb-10">
-      
+
       {/* Header */}
-      <div className="flex flex-col items-end">
+      <div className="flex flex-col items-start">
         <h1 className="text-3xl md:text-4xl font-extrabold text-[#001c56] mb-2 tracking-tight flex items-center gap-2">
           إدارة الجلسات
         </h1>
@@ -72,17 +73,15 @@ export default function SessionsPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        {/* Completed Sessions */}
-        <div className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex items-center justify-between">
-          <div className="flex-1 ml-4">
-            <p className="text-gray-500 font-medium mb-4 text-left">الجلسات المكتملة</p>
-            <div className="flex items-center gap-4 justify-end">
-              <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden flex-1 max-w-[200px]">
-                <div className="w-[89%] h-full bg-[#001c56] rounded-full"></div>
-              </div>
-              <span className="text-4xl font-black text-[#001c56]">89%</span>
-            </div>
+
+        {/* Today's Sessions */}
+        <div className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center">
+          <p className="text-gray-500 font-medium mb-2 text-center">جلسات اليوم</p>
+          <div className="flex items-center gap-4">
+            <span className="px-2 py-1 bg-green-50 text-green-600 text-xs font-bold rounded-full flex items-center gap-1">
+              12% <TrendingUp size={12} />
+            </span>
+            <span className="text-4xl font-black text-[#001c56]">24</span>
           </div>
         </div>
 
@@ -97,23 +96,25 @@ export default function SessionsPage() {
           </div>
         </div>
 
-        {/* Today's Sessions */}
-        <div className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center">
-          <p className="text-gray-500 font-medium mb-2 text-center">جلسات اليوم</p>
-          <div className="flex items-center gap-4">
-            <span className="px-2 py-1 bg-green-50 text-green-600 text-xs font-bold rounded-full flex items-center gap-1">
-              12% <TrendingUp size={12} />
-            </span>
-            <span className="text-4xl font-black text-[#001c56]">24</span>
+        {/* Completed Sessions */}
+        <div className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex items-center justify-between">
+          <div className="flex-1 ml-4">
+            <p className="text-gray-500 font-medium mb-4 text-left">الجلسات المكتملة</p>
+            <div className="flex items-center gap-4 justify-end">
+              <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden flex-1 max-w-[200px]">
+                <div className="w-[89%] h-full bg-[#001c56] rounded-full"></div>
+              </div>
+              <span className="text-4xl font-black text-[#001c56]">89%</span>
+            </div>
           </div>
         </div>
 
       </div>
 
       {/* Filter Bar */}
-      <div className="flex flex-wrap items-center justify-start gap-3 bg-white p-3 rounded-[32px] shadow-sm border border-gray-100">
+      <div className="flex flex-wrap items-center justify-start gap-8 bg-white px-8 py-3.5 rounded-full shadow-sm border border-gray-100">
         <div className="relative">
-          <button onClick={() => toggleDropdown('status')} className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm font-medium text-gray-600 transition-colors">
+          <button onClick={() => toggleDropdown('status')} className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors bg-transparent">
             {statusFilter !== "الكل" ? statusFilter : "حالة الجلسة"} <ChevronDown size={16} className="text-gray-400" />
           </button>
           {activeDropdown === 'status' && (
@@ -131,15 +132,15 @@ export default function SessionsPage() {
           )}
         </div>
         <div className="relative">
-          <button onClick={() => toggleDropdown('group')} className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm font-medium text-gray-600 transition-colors">
+          <button onClick={() => toggleDropdown('group')} className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors bg-transparent">
             المجموعة {selectedGroups.length > 0 && `(${selectedGroups.length})`} <ChevronDown size={16} className="text-gray-400" />
           </button>
           {activeDropdown === 'group' && (
             <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] z-20 overflow-hidden flex flex-col">
               <div className="p-3 border-b border-gray-50">
                 <div className="relative">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={groupSearchQuery}
                     onChange={(e) => setGroupSearchQuery(e.target.value)}
                     placeholder="أكتب اسم المادة"
@@ -151,7 +152,7 @@ export default function SessionsPage() {
               <div className="max-h-48 overflow-y-auto p-2">
                 {filteredGroupsList.map(group => (
                   <label key={group} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                    <input 
+                    <input
                       type="checkbox"
                       checked={selectedGroups.includes(group)}
                       onChange={(e) => {
@@ -171,13 +172,13 @@ export default function SessionsPage() {
                 )}
               </div>
               <div className="p-3 border-t border-gray-50 flex items-center justify-between bg-gray-50/50">
-                <button 
+                <button
                   onClick={() => setSelectedGroups(groupsList)}
                   className="text-sm font-extrabold text-[#001c56] hover:underline"
                 >
                   تحديد الكل
                 </button>
-                <button 
+                <button
                   onClick={() => setSelectedGroups([])}
                   className="text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
@@ -189,15 +190,15 @@ export default function SessionsPage() {
         </div>
 
         <div className="relative">
-          <button onClick={() => toggleDropdown('subject')} className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm font-medium text-gray-600 transition-colors">
+          <button onClick={() => toggleDropdown('subject')} className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors bg-transparent">
             المادة {selectedSubjects.length > 0 && `(${selectedSubjects.length})`} <ChevronDown size={16} className="text-gray-400" />
           </button>
           {activeDropdown === 'subject' && (
             <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] z-20 overflow-hidden flex flex-col">
               <div className="p-3 border-b border-gray-50">
                 <div className="relative">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={subjectSearchQuery}
                     onChange={(e) => setSubjectSearchQuery(e.target.value)}
                     placeholder="أكتب اسم المادة"
@@ -209,7 +210,7 @@ export default function SessionsPage() {
               <div className="max-h-48 overflow-y-auto p-2">
                 {filteredSubjectsList.map(subject => (
                   <label key={subject} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                    <input 
+                    <input
                       type="checkbox"
                       checked={selectedSubjects.includes(subject)}
                       onChange={(e) => {
@@ -229,13 +230,13 @@ export default function SessionsPage() {
                 )}
               </div>
               <div className="p-3 border-t border-gray-50 flex items-center justify-between bg-gray-50/50">
-                <button 
+                <button
                   onClick={() => setSelectedSubjects(subjectsList)}
                   className="text-sm font-extrabold text-[#001c56] hover:underline"
                 >
                   تحديد الكل
                 </button>
-                <button 
+                <button
                   onClick={() => setSelectedSubjects([])}
                   className="text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
@@ -245,17 +246,17 @@ export default function SessionsPage() {
             </div>
           )}
         </div>
-        
+
         <div className="relative">
-          <button onClick={() => toggleDropdown('teacher')} className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm font-medium text-gray-600 transition-colors">
+          <button onClick={() => toggleDropdown('teacher')} className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors bg-transparent">
             المدرس {selectedTeachers.length > 0 && `(${selectedTeachers.length})`} <ChevronDown size={16} className="text-gray-400" />
           </button>
           {activeDropdown === 'teacher' && (
             <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] z-20 overflow-hidden flex flex-col">
               <div className="p-3 border-b border-gray-50">
                 <div className="relative">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={teacherSearchQuery}
                     onChange={(e) => setTeacherSearchQuery(e.target.value)}
                     placeholder="أكتب اسم المدرس"
@@ -267,7 +268,7 @@ export default function SessionsPage() {
               <div className="max-h-48 overflow-y-auto p-2">
                 {filteredTeachersList.map(teacher => (
                   <label key={teacher} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                    <input 
+                    <input
                       type="checkbox"
                       checked={selectedTeachers.includes(teacher)}
                       onChange={(e) => {
@@ -287,13 +288,13 @@ export default function SessionsPage() {
                 )}
               </div>
               <div className="p-3 border-t border-gray-50 flex items-center justify-between bg-gray-50/50">
-                <button 
+                <button
                   onClick={() => setSelectedTeachers(teachersList)}
                   className="text-sm font-extrabold text-[#001c56] hover:underline"
                 >
                   تحديد الكل
                 </button>
-                <button 
+                <button
                   onClick={() => setSelectedTeachers([])}
                   className="text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
@@ -303,17 +304,17 @@ export default function SessionsPage() {
             </div>
           )}
         </div>
-        
+
         <div className="relative">
-          <button onClick={() => toggleDropdown('date')} className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-full text-sm font-medium text-gray-600 transition-colors">
+          <button onClick={() => toggleDropdown('date')} className="flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-gray-900 transition-colors bg-transparent">
             التاريخ {selectedDates.length > 0 && `(${selectedDates.length})`} <ChevronDown size={16} className="text-gray-400" />
           </button>
           {activeDropdown === 'date' && (
             <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] z-20 overflow-hidden flex flex-col">
               <div className="p-3 border-b border-gray-50">
                 <div className="relative">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={dateSearchQuery}
                     onChange={(e) => setDateSearchQuery(e.target.value)}
                     placeholder="أكتب التاريخ"
@@ -325,7 +326,7 @@ export default function SessionsPage() {
               <div className="max-h-48 overflow-y-auto p-2">
                 {filteredDatesList.map(date => (
                   <label key={date} className="flex items-center gap-3 px-3 py-2 hover:bg-gray-50 rounded-lg cursor-pointer">
-                    <input 
+                    <input
                       type="checkbox"
                       checked={selectedDates.includes(date)}
                       onChange={(e) => {
@@ -340,16 +341,16 @@ export default function SessionsPage() {
                     <span className="text-sm text-gray-700">{date}</span>
                   </label>
                 ))}
-                
+
                 <div className="my-2 border-t border-gray-100 pt-2 px-3 relative">
-                  <input 
-                    type="date" 
+                  <input
+                    type="date"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={(e) => {
                       if (e.target.value) {
                         const newDate = e.target.value;
                         if (!selectedDates.includes(newDate)) {
-                           setSelectedDates([...selectedDates, newDate]);
+                          setSelectedDates([...selectedDates, newDate]);
                         }
                       }
                     }}
@@ -361,13 +362,13 @@ export default function SessionsPage() {
                 </div>
               </div>
               <div className="p-3 border-t border-gray-50 flex items-center justify-between bg-gray-50/50">
-                <button 
+                <button
                   onClick={() => setSelectedDates(datesList)}
                   className="text-sm font-extrabold text-[#001c56] hover:underline"
                 >
                   تحديد الكل
                 </button>
-                <button 
+                <button
                   onClick={() => setSelectedDates([])}
                   className="text-sm font-medium text-gray-500 hover:text-gray-900"
                 >
@@ -378,69 +379,72 @@ export default function SessionsPage() {
           )}
         </div>
 
-        <div className="relative w-full max-w-[300px] shrink-0">
-          <input 
-            type="text" 
+        <div className="relative w-full md:w-[350px] shrink-0 mr-auto">
+          <input
+            type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="بحث بالاسم أو الرقم..." 
-            className="w-full h-10 bg-gray-50 border border-gray-200 rounded-full pr-10 pl-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 text-right"
+            placeholder="بحث بالاسم أو الرقم..."
+            className="w-full h-10 bg-gray-50/50 border border-gray-200 rounded-full pr-10 pl-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 text-right"
           />
           <Search size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
         </div>
-        
+
       </div>
 
       {/* Sessions Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredSessions.map((session) => (
           <div key={session.id} className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between min-h-[220px] h-auto">
+            {/* Card Header */}
             <div className="flex justify-between items-start">
-              <span className={`px-4 py-1.5 text-xs font-bold rounded-full ${session.tagColor}`}>
+              <div className="flex items-center gap-1.5 text-gray-600 font-bold text-[13px]">
+                قسم الجلسات <FileText size={16} />
+              </div>
+              <span className={`px-4 py-1.5 text-[11px] font-bold rounded-full ${session.tagColor}`}>
                 {session.status}
               </span>
-              <div className="flex items-center gap-1.5 text-gray-500 font-bold text-sm">
-                <MonitorPlay size={16} /> قسم الجلسات
-              </div>
             </div>
-            
+
             {session.status === 'ملغاة' ? (
               <>
-                <div className="flex flex-col items-center justify-center flex-1 my-4">
-                  <h3 className="text-3xl font-extrabold text-gray-300">{session.reason}</h3>
-                </div>
-                <div className="flex justify-end items-center mt-2">
-                  <div className="text-left">
-                    <h3 className="text-2xl font-extrabold text-[#001c56] mb-1">{session.title}</h3>
-                    <p className="text-gray-500 text-sm font-medium">{session.teacher} • {session.time}</p>
+                <div className="flex justify-between items-center mt-6">
+                  <div className="text-right w-full">
+                    <h3 className="text-2xl font-black text-[#001c56] mb-2">{session.title}</h3>
+                    <p className="text-gray-400 text-sm font-medium">{session.teacher} • {session.time}</p>
                   </div>
+                </div>
+                <div className="flex flex-col items-center justify-center flex-1 mt-6 mb-2">
+                  <h3 className="text-2xl font-black text-gray-400">{session.reason}</h3>
                 </div>
               </>
             ) : (
               <>
-                <div className="flex justify-between items-center mt-2">
+                {/* Title & Main Icon */}
+                <div className="flex justify-between items-center mt-6">
+                  <div className="text-right">
+                    <h3 className="text-2xl font-black text-[#001c56] mb-2">{session.title}</h3>
+                    <p className="text-gray-400 text-sm font-medium">{session.teacher} • {session.time}</p>
+                  </div>
                   <div className={`w-14 h-14 rounded-full flex items-center justify-center ${session.iconBg} ${session.iconColor}`}>
                     {session.icon}
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-2xl font-extrabold text-[#001c56] mb-1">{session.title}</h3>
-                    <p className="text-gray-500 text-sm font-medium">{session.teacher} • {session.time}</p>
-                  </div>
                 </div>
-                
-                <div className="flex items-end justify-between mt-4">
-                  <div className="flex-1 ml-6 relative">
+
+                {/* Bottom Section */}
+                <div className="flex items-end justify-between mt-8">
+                  <Link href={`/sessions/${session.id}`} className="text-[13px] font-bold text-gray-600 hover:text-[#001c56] whitespace-nowrap block">
+                    {session.status === 'مكتملة' ? 'عرض التقرير' : 'عرض المزيد'}
+                  </Link>
+                  <div className="flex-1 mr-10 relative">
                     <div className="flex justify-between text-xs font-bold text-gray-500 mb-2">
-                      <span>{session.attendance ? `${session.attendance}%` : session.registered}</span>
                       <span>{session.attendance ? 'الحضور' : 'المسجلين'}</span>
+                      <span className="text-gray-400">{session.attendance ? `${session.attendance}%` : session.registered}</span>
                     </div>
                     <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div className={`h-full rounded-full ${session.attendance ? 'bg-[#001c56]' : 'bg-gray-500'}`} style={{ width: `${session.attendance || session.progress}%` }}></div>
                     </div>
                   </div>
-                  <button className="text-sm font-bold text-gray-600 hover:text-[#001c56] whitespace-nowrap">
-                    {session.status === 'مكتملة' ? 'عرض التقرير' : 'عرض المزيد'}
-                  </button>
                 </div>
               </>
             )}
