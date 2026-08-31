@@ -281,7 +281,7 @@ export default function SubjectFilesPage() {
 
       {/* Upload File Slide-over */}
       {isUploadModalOpen && (
-        <div className="fixed inset-0 z-50 flex justify-start bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white w-full max-w-[450px] h-full flex flex-col shadow-2xl animate-in slide-in-from-left duration-300 rounded-r-[32px] overflow-hidden">
             
             {/* Header */}

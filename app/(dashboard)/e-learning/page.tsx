@@ -272,12 +272,12 @@ export default function ELearningDashboard() {
               {activeCourses.map((course, i) => (
                 <div key={i} className="bg-gray-50 rounded-3xl p-6 border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div className="flex justify-between items-start mb-6">
-                    <span className="bg-white px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 shadow-sm border border-gray-50">
-                      الصف الثالث
-                    </span>
                     <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                       {course.icon}
                     </div>
+                    <span className="bg-white px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 shadow-sm border border-gray-50">
+                      الصف الثالث
+                    </span>
                   </div>
                   <div className="text-right mb-6">
                     <h3 className="text-base font-extrabold text-[#001c56] mb-1">{course.title}</h3>
@@ -311,26 +311,26 @@ export default function ELearningDashboard() {
             {/* Assignments */}
             <div className="bg-white rounded-[32px] p-6 border border-gray-100 shadow-sm">
               <div className="flex justify-between items-center mb-6">
-                <Link href="/e-learning/assignments" className="text-xs font-bold text-[#001c56] hover:underline">عرض الكل</Link>
                 <h2 className="text-base font-bold text-[#001c56] flex items-center gap-2">
                   الواجبات <FileSignature size={18} className="text-[#001c56]" />
                 </h2>
+                <Link href="/e-learning/assignments" className="text-xs font-bold text-[#001c56] hover:underline">عرض الكل</Link>
               </div>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse">
+                <div className="flex items-center p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse gap-6">
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
                      <FileText size={18} className="text-gray-400" />
                   </div>
-                  <div className="text-right w-full mr-4 pr-4 border-r-2 border-red-500">
+                  <div className="text-right w-full pr-4 border-r-2 border-red-500">
                     <h4 className="text-[11px] font-extrabold text-[#001c56] mb-1">تطبيقات على الباب الأول</h4>
                     <p className="text-[9px] font-bold text-red-500">متأخر - الكيمياء</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse">
+                <div className="flex items-center p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse gap-6">
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
                      <FileText size={18} className="text-gray-400" />
                   </div>
-                  <div className="text-right w-full mr-4 pr-4 border-r-2 border-[#001c56]">
+                  <div className="text-right w-full pr-4 border-r-2 border-[#001c56]">
                     <h4 className="text-[11px] font-extrabold text-[#001c56] mb-1">مسائل الاستاتيكا</h4>
                     <p className="text-[9px] font-bold text-gray-500">الرياضيات - غداً 12 م</p>
                   </div>
@@ -341,17 +341,17 @@ export default function ELearningDashboard() {
             {/* Exams */}
             <div className="bg-white rounded-[32px] p-6 border border-gray-100 shadow-sm">
               <div className="flex justify-between items-center mb-6">
-                <Link href="/e-learning/exams" className="text-xs font-bold text-[#001c56] hover:underline">عرض الكل</Link>
                 <h2 className="text-base font-bold text-[#001c56] flex items-center gap-2">
                   الامتحانات <FileKey size={18} className="text-[#001c56]" />
                 </h2>
+                <Link href="/e-learning/exams" className="text-xs font-bold text-[#001c56] hover:underline">عرض الكل</Link>
               </div>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse">
+                <div className="flex items-center p-4 rounded-2xl bg-gray-50 border border-gray-100 flex-row-reverse gap-6">
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
                      <FileKey size={18} className="text-gray-400" />
                   </div>
-                  <div className="text-right w-full mr-4 flex justify-between items-center">
+                  <div className="text-right w-full flex justify-between items-center">
                     <div>
                       <h4 className="text-[11px] font-extrabold text-[#001c56] mb-1">اختبار شهر أكتوبر</h4>
                       <p className="text-[9px] font-bold text-gray-500">الفيزياء - تم التقييم</p>
@@ -362,11 +362,11 @@ export default function ELearningDashboard() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-blue-50 border border-blue-100 flex-row-reverse">
+                <div className="flex items-center p-4 rounded-2xl bg-blue-50 border border-blue-100 flex-row-reverse gap-6">
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0">
                      <PlayCircle size={18} className="text-blue-500" />
                   </div>
-                  <div className="text-right w-full mr-4 flex justify-between items-center">
+                  <div className="text-right w-full flex justify-between items-center">
                     <div>
                       <h4 className="text-[11px] font-extrabold text-[#001c56] mb-1">امتحان نصف التيرم</h4>
                       <p className="text-[9px] font-bold text-blue-600">اللغة العربية - متاح الآن</p>

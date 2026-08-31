@@ -173,6 +173,41 @@ export default function FinancePage() {
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         
+        {/* Right Column: Cash Flow Chart */}
+        <div className="lg:col-span-1 bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 flex flex-col">
+          <div className="flex justify-between items-center mb-10">
+            <h2 className="text-xl font-extrabold text-[#001c56] flex items-center gap-2">
+              <span className="w-1.5 h-5 bg-[#001c56] rounded-full inline-block"></span>
+              ملخص حركة السيولة
+            </h2>
+          </div>
+
+          <div className="flex-1 bg-gray-50/50 rounded-[32px] p-6 flex flex-col justify-end min-h-[300px] animate-in zoom-in-95 duration-500" key={`chart-${timeFilter}`}>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={currentChartData} margin={{ top: 10, right: 10, left: -30, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#9ca3af' }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#9ca3af' }} />
+                <Tooltip cursor={{ fill: '#f9fafb' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                <Bar dataKey="revenues" name="الإيرادات" fill="#7896C7" radius={[4, 4, 0, 0]} barSize={24} />
+                <Bar dataKey="payments" name="المدفوعات" fill="#E4ECF7" radius={[4, 4, 0, 0]} barSize={24} />
+              </BarChart>
+            </ResponsiveContainer>
+            
+            {/* Chart Legend */}
+            <div className="flex justify-center items-center gap-8 mt-8 pt-6 border-t border-gray-200/60">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#E4ECF7]"></div>
+                <span className="text-xs font-bold text-gray-400">المدفوعات</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#7896C7]"></div>
+                <span className="text-xs font-bold text-[#001c56]">الإيرادات</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Left Column: Recent Transactions Table */}
         <div className="lg:col-span-2 bg-white rounded-[32px] p-8 shadow-sm border border-gray-100">
           <div className="flex justify-between items-center mb-8">
@@ -215,41 +250,6 @@ export default function FinancePage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-
-        {/* Right Column: Cash Flow Chart */}
-        <div className="lg:col-span-1 bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 flex flex-col">
-          <div className="flex justify-between items-center mb-10">
-            <h2 className="text-xl font-extrabold text-[#001c56] flex items-center gap-2">
-              <span className="w-1.5 h-5 bg-[#001c56] rounded-full inline-block"></span>
-              ملخص حركة السيولة
-            </h2>
-          </div>
-
-          <div className="flex-1 bg-gray-50/50 rounded-[32px] p-6 flex flex-col justify-end min-h-[300px] animate-in zoom-in-95 duration-500" key={`chart-${timeFilter}`}>
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={currentChartData} margin={{ top: 10, right: 10, left: -30, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#9ca3af' }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#9ca3af' }} />
-                <Tooltip cursor={{ fill: '#f9fafb' }} contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-                <Bar dataKey="revenues" name="الإيرادات" fill="#7896C7" radius={[4, 4, 0, 0]} barSize={24} />
-                <Bar dataKey="payments" name="المدفوعات" fill="#E4ECF7" radius={[4, 4, 0, 0]} barSize={24} />
-              </BarChart>
-            </ResponsiveContainer>
-            
-            {/* Chart Legend */}
-            <div className="flex justify-center items-center gap-8 mt-8 pt-6 border-t border-gray-200/60">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#E4ECF7]"></div>
-                <span className="text-xs font-bold text-gray-400">المدفوعات</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#7896C7]"></div>
-                <span className="text-xs font-bold text-[#001c56]">الإيرادات</span>
-              </div>
-            </div>
           </div>
         </div>
 
